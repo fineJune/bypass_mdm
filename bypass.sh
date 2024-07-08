@@ -10,7 +10,7 @@ CYAN='\033[1;36m'
 NC='\033[0m'
 
 # Display header
-echo -e "${CYAN}MDM 绕过 —— by darcycao${NC}"
+echo -e "${CYAN}MDM 绕过 —— by fineJune${NC}"
 echo ""
 
 # Prompt user for choice
@@ -20,7 +20,7 @@ select opt in "${options[@]}"; do
     case $opt in
         "绕过MDM（选我）")
             # Bypass MDM from Recovery
-            echo -e "${YEL}绕过MDM"
+            echo -e "${YEL}开始绕过MDM"
             if [ -d "/Volumes/Macintosh HD - Data" ]; then
                 diskutil rename "Macintosh HD - Data" "Data"
             fi
