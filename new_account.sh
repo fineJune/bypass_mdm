@@ -1,8 +1,8 @@
 echo -e "${NC}创建账户"
 read -p "输入电脑名称(默认为 'Macbook'): " realName
-realName="${realName:=Apple}"
+realName="${realName:=Macbook}"
 read -p "输入账户名称(默认为 'User'): " username
-username="${username:=Apple}"
+username="${username:=User}"
 read -p "输入账号密码 (默认是 '1234'): " passw
 passw="${passw:=1234}"
 
