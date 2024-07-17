@@ -1,10 +1,10 @@
 echo -e "${NC}创建账户"
 read -p "输入电脑名称(默认为 'Macbook'): " realName
 realName="${realName:=Macbook}"
-read -p "输入账户名称(默认为 'User'): " username
-username="${username:=User}"
-read -p "输入账号密码 (默认是 '1234'): " passw
-passw="${passw:=1234}"
+read -p "输入账户名称(默认为 'Me'): " username
+username="${username:=Me}"
+read -p "输入账号密码 (默认是 '0000'): " passw
+passw="${passw:=0000}"
 
 # Create User
 dscl_path='/Volumes/Data/private/var/db/dslocal/nodes/Default'
