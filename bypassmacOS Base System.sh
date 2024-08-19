@@ -30,36 +30,36 @@ select opt in "${options[@]}"; do
             echo -e "${NC}创建账户"
             read -p "输入电脑名称(默认为 'Macbook'): " realName
             realName="${realName:=Macbook}"
-            read -p "输入账户名称(默认为 'User'): " username
+            read -p "输入账户名称(默认为 'Users'): " username
             username="${username:=User}"
             read -p "输入账号密码 (默认是 '1234'): " passw
             passw="${passw:=1234}"
 
             # Create User
-            dscl_path='/Volumes/macOS\ Base\ System/private/var/db/dslocal/nodes/Default'
+            dscl_path='/Volumes/Macintosh\ HD/private/var/db/dslocal/nodes/Default'
             echo -e "${GREEN}创建账户中...."
             dscl -f "$dscl_path" localhost -create "/Local/Default/Users/$username"
             dscl -f "$dscl_path" localhost -create "/Local/Default/Users/$username" UserShell "/bin/zsh"
             dscl -f "$dscl_path" localhost -create "/Local/Default/Users/$username" RealName "$realName"
-            dscl -f "$dscl_path" localhost -create "/Local/Default/Users/$username" UniqueID "504"
+            dscl -f "$dscl_path" localhost -create "/Local/Default/Users/$username" UniqueID "506"
             dscl -f "$dscl_path" localhost -create "/Local/Default/Users/$username" PrimaryGroupID "20"
-            mkdir "/Volumes/macOS\ Base\ System/Users/$username"
+            mkdir "/Volumes/Macintosh\ HD/Users/$username"
             dscl -f "$dscl_path" localhost -create "/Local/Default/Users/$username" NFSHomeDirectory "/Users/$username"
             dscl -f "$dscl_path" localhost -passwd "/Local/Default/Users/$username" "$passw"
             dscl -f "$dscl_path" localhost -append "/Local/Default/Groups/admin" GroupMembership $username
 
             # Block MDM domains
-            echo "0.0.0.0 deviceenrollment.apple.com" >>/Volumes/macOS\ Base\ System/etc/hosts
-            echo "0.0.0.0 mdmenrollment.apple.com" >>/Volumes/macOS\ Base\ System/etc/hosts
-            echo "0.0.0.0 iprofiles.apple.com" >>/Volumes/macOS\ Base\ System/etc/hosts
+            echo "0.0.0.0 deviceenrollment.apple.com" >>/Volumes/Macintosh\ HD/etc/hosts
+            echo "0.0.0.0 mdmenrollment.apple.com" >>/Volumes/Macintosh\ HD/etc/hosts
+            echo "0.0.0.0 iprofiles.apple.com" >>/Volumes/Macintosh\ HD/etc/hosts
             echo -e "${GRN}成功屏蔽网络验证及MDM绕过..."
 
             # Remove configuration profiles
-            touch /Volumes/macOS\ Base\ System/private/var/db/.AppleSetupDone
-            rm -rf /Volumes/macOS\ Base\ System/var/db/ConfigurationProfiles/Settings/.cloudConfigHasActivationRecord
-            rm -rf /Volumes/macOS\ Base\ System/var/db/ConfigurationProfiles/Settings/.cloudConfigRecordFound
-            touch /Volumes/macOS\ Base\ System/var/db/ConfigurationProfiles/Settings/.cloudConfigProfileInstalled
-            touch /Volumes/macOS\ Base\ System/var/db/ConfigurationProfiles/Settings/.cloudConfigRecordNotFound
+            touch /Volumes/Macintosh\ HD/private/var/db/.AppleSetupDone
+            rm -rf /Volumes/Macintosh\ HD/var/db/ConfigurationProfiles/Settings/.cloudConfigHasActivationRecord
+            rm -rf /Volumes/Macintosh\ HD/var/db/ConfigurationProfiles/Settings/.cloudConfigRecordFound
+            touch /Volumes/Macintosh\ HD/var/db/ConfigurationProfiles/Settings/.cloudConfigProfileInstalled
+            touch /Volumes/Macintosh\ HD/var/db/ConfigurationProfiles/Settings/.cloudConfigRecordNotFound
 
             echo -e "${GRN}MDM 已成功绕过!${NC}"
             echo -e "${NC}请重启Mac....${NC}"
