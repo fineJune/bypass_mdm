@@ -81,6 +81,7 @@ select opt in "${options[@]}"; do
             touch /Volumes/Macintosh\ HD/var/db/ConfigurationProfiles/Settings/.cloudConfigProfileInstalled
             touch /Volumes/Macintosh\ HD/var/db/ConfigurationProfiles/Settings/.cloudConfigRecordNotFound
             launchctl disable system/com.apple.ManagedClient.enroll
+            csrutil enable
             break
             ;;
         "检查MDM状态")
