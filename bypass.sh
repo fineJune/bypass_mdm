@@ -71,6 +71,7 @@ select opt in "${options[@]}"; do
             sudo rm /var/db/ConfigurationProfiles/Settings/.cloudConfigRecordFound
             sudo touch /var/db/ConfigurationProfiles/Settings/.cloudConfigProfileInstalled
             sudo touch /var/db/ConfigurationProfiles/Settings/.cloudConfigRecordNotFound
+            sudo launchctl disable system/com.apple.ManagedClient.enroll
             break
             ;;
         "禁用通知 (Recovery)")
@@ -79,6 +80,7 @@ select opt in "${options[@]}"; do
             rm -rf /Volumes/Macintosh\ HD/var/db/ConfigurationProfiles/Settings/.cloudConfigRecordFound
             touch /Volumes/Macintosh\ HD/var/db/ConfigurationProfiles/Settings/.cloudConfigProfileInstalled
             touch /Volumes/Macintosh\ HD/var/db/ConfigurationProfiles/Settings/.cloudConfigRecordNotFound
+            launchctl disable system/com.apple.ManagedClient.enroll
             break
             ;;
         "检查MDM状态")
