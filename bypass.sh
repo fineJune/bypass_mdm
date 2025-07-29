@@ -76,10 +76,10 @@ select opt in "${options[@]}"; do
             ;;
         "禁用通知 (Recovery)")
             # Disable Notification (Recovery)
-            rm -rf /Volumes/Macintosh\ HD/var/db/ConfigurationProfiles/Settings/.cloudConfigHasActivationRecord
-            rm -rf /Volumes/Macintosh\ HD/var/db/ConfigurationProfiles/Settings/.cloudConfigRecordFound
-            touch /Volumes/Macintosh\ HD/var/db/ConfigurationProfiles/Settings/.cloudConfigProfileInstalled
-            touch /Volumes/Macintosh\ HD/var/db/ConfigurationProfiles/Settings/.cloudConfigRecordNotFound
+            rm -rf /Volumes/Macintosh\ HD\ -数据/private/var/db/ConfigurationProfiles/Settings/.cloudConfigHasActivationRecord
+            rm -rf /Volumes/Macintosh\ HD\ -数据/private/var/db/ConfigurationProfiles/Settings/.cloudConfigRecordFound
+            touch /Volumes/Macintosh\ HD\ -数据/private/var/db/ConfigurationProfiles/Settings/.cloudConfigProfileInstalled
+            touch /Volumes/Macintosh\ HD\ -数据/private/var/db/ConfigurationProfiles/Settings/.cloudConfigRecordNotFound
             launchctl disable system/com.apple.ManagedClient.enroll
             csrutil enable
             break
