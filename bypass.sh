@@ -20,7 +20,7 @@ get_system_volume() {
 
 # Get the system volume name
 system_volume=$(get_system_volume)
-echo -e "系统盘路径:${system_volume}"
+echo -e "${GRN}成功检查到系统盘路径，系统盘路径:${system_volume}"
 
 # Prompt user for choice
 PS3='输入1绕过MDM: '
