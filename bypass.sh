@@ -14,7 +14,7 @@ echo -e "${CYAN}MDM 绕过 —— by fineJune${NC}"
 echo ""
 # Function to get the system volume name
 get_system_volume() {
-    system_volume=$(diskutil info / | grep "Device Node" | awk -F': ' '{print $2}' | xargs diskutil info | grep "Volume Name" | awk -F': ' '{print $2}' | tr -d ' ')
+    system_volume=$(diskutil info / | grep "Device Node" | awk -F': ' '{print $2}' | xargs diskutil info | grep "Volume Name" | awk -F': ' '{print $2}')
     echo "$system_volume"
 }
 
