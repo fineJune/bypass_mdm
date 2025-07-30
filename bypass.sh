@@ -14,7 +14,7 @@ echo -e "${CYAN}MDM 绕过 —— by fineJune${NC}"
 echo ""
 # Function to get the system volume name
 get_system_volume() {
-    system_volume=$(diskutil info / | grep "Device Node" | awk -F': ' '{print $2}' | xargs diskutil info | grep "Volume Name" | awk -F': ' '{print $2}')
+    system_volume=$(diskutil info / | grep "Device Node" | awk -F': ' '{print $2}' | xargs diskutil info | grep "Volume Name" | awk -F': ' '{print $2}' | )
     echo "$system_volume"
 }
 
@@ -76,6 +76,7 @@ select opt in "${options[@]}"; do
         "禁用通知 (SIP)")
             # Disable Notification (SIP)
             echo -e "${RED}请输入密码继续:${NC}"
+            touch /Volumes/"$system_volume"/private/var/db/.AppleSetupDone
             sudo rm /var/db/ConfigurationProfiles/Settings/.cloudConfigHasActivationRecord
             sudo rm /var/db/ConfigurationProfiles/Settings/.cloudConfigRecordFound
             sudo touch /var/db/ConfigurationProfiles/Settings/.cloudConfigProfileInstalled
